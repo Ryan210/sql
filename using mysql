@@ -1,0 +1,4 @@
+open in cmd
+after setting the enviroment path 
+mysql -u root -p
+enter passwd
