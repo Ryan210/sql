@@ -1,0 +1,23 @@
+ 一、数据库创建：CREATE
+ 1、语法：CREATE {DATABASE | SCHEMA} [IF NOT EXISTS] db_name [DEFAULT] CHARACTER SET [=] charset_name.
+ 2、DATABASE和SCHEMA是相同的，任选其一
+3、IF NOT EXISTS:如果创建的数据库存在，则不只报出warning，不写会报错
+4、CHRARCTER SET gbk:为表设置编码方式，如果不设置则用mysql默认的编码方式
+ 二、查看数据库列表：SHOW
+ 1、SHOW { DATABASE | SCHEMAS } [LIKE 'pattern' | WHERE expr]
+ 2、SHOW CREATE DATABASE xx：显示xx数据库信息
+ 三、数据库的修改：ALTER
+ 1、修改数据库编码方式：ALTER { DATABASE | SCHEMAS } [db_name][DEFAULT] CHARACTER SET [=] charset_name 
+四、删除数据库：DROP
+ 1、删除数据库：DROP { DATABASE | SCHEMAS } [IF EXISTS] db_name;
+
+ mysql -uroot -proot prompt \D --修改mysql操作符为当前日期
+show databases --展示所有数据库
+create database if not exists t1 character set gbk; --创建数据库
+show create database t1; --展示数据库t1的创建命令和编码形式
+--修改数据库编码格式
+alter database t2 character set =utf8;
+--删除数据库
+drop database if exists t1;
+--展示警告信息
+show warnings;
