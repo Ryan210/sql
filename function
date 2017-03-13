@@ -1,0 +1,16 @@
+创建具有复合结构函数体的自定义函数
+修改分隔符：DELEMITER 分隔符
+Eg：DELIMITER // /* 将命令分隔符”;”改为”//“ */
+当函数体内需要执行的是多条语句时，要使用BEGIN...END语句
+且当编写函数体内容的时候，需要使用 DELIMITER 关键字将分隔符先修改为别的，否则编写语句的时候写到 ';' 的时候会直接执行，导致函数编写失败
+删除函数：DROP FUNCTION [IF EXISTS] function_name
+
+Eg：
+DELIMITER //
+CREATE FUNCTION ADD_USER(username VARCHAR(20))
+RETURNS INT UNSIGNED
+BEGIN
+INSERT user(username) VALUES(username);
+RETURN LAST_INSERT_ID();
+END
+//	/* 此处的”//“为告诉系统函数定义结束 */
